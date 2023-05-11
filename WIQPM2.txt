@@ -1,0 +1,5 @@
+x = c(1, 2, 3, 4, 5)
+y = c(2.0, 4.1, 8.8, 16.3, 25.2)
+ln_y = exp(y)
+exp_reg = function(x, y){a = 0; b = 0; sumx = 0; for(i in 1:length(x)){sumx = sumx + x[i]}; sumy = 0; for(i in 1:length(x)){sumy = sumy + y[i]}; sumxy = 0; for(i in 1:length(x)){sumxy = sumxy + x[i]*y[i]}; sumxx = 0; for(i in 1:length(x)){sumxx = sumxx + x[i] * x[i]}; a = (sumxy * length(x) - sumx * sumy)/(sumxx * length(x) - sumx * sumx); b = (sumxx * sumy - sumx * sumy)/(sumxx * length(x) - sumx * sumx); d = exp(b); params = c(d, a); return(params)  }
+exp_reg(x, y)
